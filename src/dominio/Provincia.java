@@ -1,41 +1,32 @@
 package dominio;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Provincia {
-        private String nombre;
-        private List<Municipio> municipios;
+public class Provincia implements Serializable {
+    private String nombre;
+    private List<Municipio> municipios;
 
-        public Provincia(String nombre) {
-            this.nombre = nombre;
-            this.municipios = new ArrayList<>();
-        }
+    public Provincia(String nombre) {
+        this.nombre = nombre;
+        this.municipios = new ArrayList<>();
+    }
 
-        public String getNombre() {
-            return nombre;
-        }
+    public String getNombre() {
+        return nombre;
+    }
 
-        public void setNombre(String nombre) {
-            this.nombre = nombre;
-        }
+    public void agregarMunicipio(Municipio municipio) {
+        municipios.add(municipio);
+    }
 
-        public List<Municipio> getMunicipios() {
-            return municipios;
-        }
+    public List<Municipio> getMunicipios() {
+        return municipios;
+    }
 
-        public void agregarMunicipio(Municipio municipio) {
-            municipios.add(municipio);
-        }
-
-        public int contarHabitantes() {
-            int totalHabitantes = 0;
-            for (Municipio municipio : municipios) {
-                totalHabitantes += municipio.contarHabitantes();
-            }
-            return totalHabitantes;
-        }
+    @Override
     public String toString() {
-        return "Provincia [Nombre: " + nombre + ", Municipios: " + municipios + "]";
+        return String.format("Provincia [Nombre: %s, Municipios: %s]", nombre, municipios);
     }
 }
