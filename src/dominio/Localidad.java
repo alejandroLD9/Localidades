@@ -7,7 +7,7 @@ public class Localidad{
         poblacion=poblacion_;
     }
     public String toString(){
-        return "Localidad: "+ nombre+" Población: "+poblacion+" habitantes\n";
+        return "Localidad: "+ nombre +" Población: "+ poblacion +" habitantes\n";
     }
 
     public int getPoblacion() {
